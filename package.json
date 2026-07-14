@@ -1,0 +1,10 @@
+{
+  "name": "deeon-signal-cloud",
+  "version": "1.0.0",
+  "description": "Termux için hafif bulut sunucu ve sinyal titreşim uygulaması prototipi",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/server.test.js"
+  }
+}

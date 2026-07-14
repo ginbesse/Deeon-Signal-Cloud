@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deeon Signal Cloud</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-card">
+        <p class="eyebrow">2100'ler konsepti · termux hazır</p>
+        <h1>Deeon Signal Cloud</h1>
+        <p class="hero-text">
+          Yeni nesil biyolojik insan sinyallerini sanal ortamda görüntüle, değiştir ve çevresel erişim izniyle paylaş.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Giriş ve kayıt</h2>
+        <form id="auth-form" class="stack-form">
+          <label>
+            Kullanıcı adı
+            <input type="text" id="username" placeholder="neo" required />
+          </label>
+          <label>
+            Parola
+            <input type="password" id="password" placeholder="********" required />
+          </label>
+          <div class="button-row">
+            <button type="submit" data-mode="login">Giriş yap</button>
+            <button type="button" id="register-btn">Kayıt ol</button>
+          </div>
+        </form>
+        <div id="auth-result" class="result-box"></div>
+      </section>
+
+      <section class="panel">
+        <h2>İzin talebi</h2>
+        <form id="access-form">
+          <label>
+            İstek sahibi
+            <input type="text" id="requester" placeholder="Ada / cihaz" required />
+          </label>
+          <label>
+            Hedef kullanıcı
+            <input type="text" id="target" placeholder="hedef-kullanici" required />
+          </label>
+          <label>
+            Erişim türü
+            <select id="scope">
+              <option value="signal-read">Sinyal okuma</option>
+              <option value="signal-write">Sinyal değiştirme</option>
+              <option value="signal-share">Sinyal paylaşma</option>
+            </select>
+          </label>
+          <label>
+            Sebep
+            <textarea id="reason" rows="3" placeholder="Neden erişim istiyorsun?"></textarea>
+          </label>
+          <button type="submit">İzin iste</button>
+        </form>
+        <div id="access-result" class="result-box"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Sinyal titreşimi</h2>
+        <form id="signal-form">
+          <label>
+            Genlik
+            <input type="range" id="amplitude" min="0.1" max="1" step="0.01" value="0.72" />
+          </label>
+          <label>
+            Frekans
+            <input type="range" id="frequency" min="1" max="12" step="0.1" value="5.2" />
+          </label>
+          <label>
+            Mod
+            <select id="intent">
+              <option value="cohesion">Kohesyon</option>
+              <option value="heal">İyileştirme</option>
+              <option value="sync">Senkronizasyon</option>
+            </select>
+          </label>
+          <button type="submit">Titreşimi güncelle</button>
+        </form>
+        <canvas id="wave-canvas" width="320" height="180"></canvas>
+        <div id="signal-result" class="result-box"></div>
+      </section>
+
+      <section class="panel wide-panel">
+        <h2>Canlı erişim paneli</h2>
+        <p class="hero-text">
+          Bu panel, izin isteklerini ve sinyal durumunu birlikte gösterir. Gerçek bir üretim sürümünde bu veriler veritabanına ve güvenlik katmanına bağlanır.
+        </p>
+        <div id="request-list" class="request-list"></div>
+        <div class="security-note">
+          <strong>Güvenlik notu:</strong> erişim istekleri sadece prototip amaçlıdır; üretimde şifreleme, kullanıcı kimlik doğrulama ve izleme mekanizması eklenmelidir.
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
